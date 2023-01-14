@@ -28,4 +28,15 @@ export class BoardsService {
     this.boards.push(board);
     return board;
   }
+
+  deleteBoard(id: string): void {
+    this.boards = this.boards.filter((v) => v.id !== id);
+  }
+
+  updateBoardStatus(id: string, status: BoardStatus): Board {
+    const board = this.getBoardById(id);
+    board.status = status;
+
+    return board;
+  }
 }
